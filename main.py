@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from visit import visit_router
+from todo import todo_router
 import uvicorn
 
 app = FastAPI()
@@ -21,7 +21,7 @@ async def welcome() -> dict:
         "msg" : "hello world"
     }
 
-app.include_router(visit_router)
+app.include_router(todo_router)
 
 if __name__=='__main__':
     uvicorn.run("main:app", host="0.0.0.0", port=80, reload=True)
